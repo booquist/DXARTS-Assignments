@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .content {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 1s ease-in-out;
+        }
+        .content:hover {
+            transform: scale(1.2);
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            color: #666;
+        }
+        .content a {
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="box1" onclick="randomMove('box1')">
+        <h2>Early Years</h2>
+        <p>I started off in electrical and computer engineering to chase my dream of working in audio...</p>
+        <a href="https://splice.com/plugins" target="_blank">Tech that inspired me</a>
+    </div>
+    <div class="content" id="box2" onclick="randomMove('box2')">
+        <h2>How my dreams shifted</h2>
+        <p>Once I began studying engineering, I started to focus more on audio technology broadly</p>
+        <a href="https://www.dolby.com/technologies/dolby-atmos/" target="_blank">Tech that inspired me II</a>
+    </div>
+    <div class="content" id="box3" onclick="randomMove('box3')">
+        <h2>Desire to succeed</h2>
+        <p>How my professional aspirations have shifted my hobbies</p>
+        <a href="https://clipdle.tv/" target="_blank">A website I created</a>
+    </div>
+    <div class="content" id="box4" onclick="randomMove('box4')">
+        <h2>Moving on</h2>
+        <p>Where I'll be moving to "forward" my career (hopefully)</p>
+        <a href="https://www.visittucson.org/things-to-do/attractions/" target="_blank">Information on the city of Tucson</a>
+    </div>
+
+<script>
+    const randomMove = (id) => {
+        const box = document.getElementById(id);
+        const randomX = Math.floor(Math.random() * (window.innerWidth - box.offsetWidth));
+        const randomY = Math.floor(Math.random() * (window.innerHeight - box.offsetHeight));
+
+        box.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        box.style.backgroundColor = "#" + randomColor;
+    }
+</script>
+
+</body>
+</html>
